@@ -76,6 +76,76 @@ console.log(object.toString()); // "[object Object]"
 delete object.toString;
 console.log(object.toString()); // "[object Object]"
 
+/*
+	3. Using prototypes with constructors
+
+*/
+
+function Person3(name) {
+	this.name = name;
+}
+
+Person3.prototype.sayName = function() {
+	return this.name;
+}
+
+var person4 = new Person3("Adam");
+var person5 = new Person3("Eve");
+
+console.log(person4.name); // "Adam"
+console.log(person5.name); // "Eve"
+
+person4.sayName(); // "Adam"
+person5.sayName(); // "Eve"
+
+function Person6(name) {
+	this.name = name;
+}
+
+Person6.prototype = {
+	constructor: Person6,
+	sayName: function() {
+		return this.name;
+	}
+}
+
+var person7 = new Person6("John");
+console.log(person7.constructor === Person6); // false (if constructor: Person6) absent
+
+/*
+	4. Changing prototypes
+
+*/
+
+function Rectangle(width, height) {
+	this.width = width;
+	this.height = height;
+}
+
+Rectangle.prototype.getWidth = function() {
+	return this.width;
+};
+
+var rectangle1 = new Rectangle(80, 50);
+var rectangle2 = new Rectangle(100, 5);
+
+console.log("getHeight" in rectangle1); // false
+console.log("getHeight" in rectangle2); // false
+
+// add getHeight to Rectangle prototype (modifying the prototype)
+Rectangle.prototype.getHeight = function() {
+	return this.height;
+};
+
+// only affects own properties
+Object.freeze(rectangle1);
+Object.freeze(rectangle2);
+
+console.log("getHeight" in rectangle1); // true
+console.log("getHeight" in rectangle2); // true
+
+
+
 
 
 
