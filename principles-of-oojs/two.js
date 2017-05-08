@@ -77,14 +77,14 @@ console.log(o.getName()); // "Matthew"
 
 /*
 	call();
-	Executes the function with a given `this` context.
+	Executes the function with a given `this` context and passes additional parameters. 
 
 	apply();
 	Executes the function with a given `this` context, but
 	the second parameter is an Array.
 
 	bind();
-	Binds the `this` to the function and passes additional parameters. 
+	Binds the `this` to the function.
 	(Does NOT execute the function)
 
 */

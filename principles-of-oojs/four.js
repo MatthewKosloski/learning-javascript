@@ -143,13 +143,3 @@ Object.freeze(rectangle2);
 
 console.log("getHeight" in rectangle1); // true
 console.log("getHeight" in rectangle2); // true
-
-
-
-
-
-
-
-
-
-

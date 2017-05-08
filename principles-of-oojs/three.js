@@ -185,7 +185,3 @@ var person6 = {
 console.log(Object.isFrozen(person6));  // false
 Object.freeze(person6);
 console.log(Object.isFrozen(person6));  // true
-
-
-
-
